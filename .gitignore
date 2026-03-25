@@ -11,3 +11,4 @@ current_building
 *.patch
 *.bk
 tmp
+/code-server-ignore

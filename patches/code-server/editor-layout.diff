@@ -1,0 +1,47 @@
+Modify editor and sidebar minimum width limits
+
+This patch modifies the minimum width of the editor area, the primary sidebar,
+and the auxiliary bar (secondary sidebar) to 10px. This allows the right
+sidebar to be moved freely towards the left.
+
+Index: code-server/lib/vscode/src/vs/workbench/browser/parts/editor/editor.ts
+===================================================================
+--- old/code-server/lib/vscode/src/vs/workbench/browser/parts/editor/editor.ts
++++ new/code-server/lib/vscode/src/vs/workbench/browser/parts/editor/editor.ts
+@@ -11,7 +11,7 @@
+ import { Dimension } from '../../../../base/browser/dom.js';
+ import { IEditorOptions, ITextEditorOptions } from '../../../../platform/editor/common/editor.js';
+ 
+-export const EDITOR_MIN_DIMENSIONS = new Dimension(170, 70);
++export const EDITOR_MIN_DIMENSIONS = new Dimension(10, 10);
+ 
+ export interface IEditorPartView {
+ 	readonly dimension: Dimension;
+
+Index: code-server/lib/vscode/src/vs/workbench/browser/parts/sidebar/sidebarPart.ts
+===================================================================
+--- old/code-server/lib/vscode/src/vs/workbench/browser/parts/sidebar/sidebarPart.ts
++++ new/code-server/lib/vscode/src/vs/workbench/browser/parts/sidebar/sidebarPart.ts
+@@ -21,7 +21,7 @@
+ import { IStorageService } from '../../../../platform/storage/common/storage.js';
+ import { IThemeService } from '../../../../platform/theme/common/themeService.js';
+ 
+-export const MIN_SIDEBAR_WIDTH = 170;
++export const MIN_SIDEBAR_WIDTH = 10;
+ 
+ export class SidebarPart extends CompositePart<ViewPaneContainer> {
+ 	static readonly ID = 'workbench.parts.sidebar';
+
+Index: code-server/lib/vscode/src/vs/workbench/browser/parts/auxiliarybar/auxiliaryBarPart.ts
+===================================================================
+--- old/code-server/lib/vscode/src/vs/workbench/browser/parts/auxiliarybar/auxiliaryBarPart.ts
++++ new/code-server/lib/vscode/src/vs/workbench/browser/parts/auxiliarybar/auxiliaryBarPart.ts
+@@ -20,7 +20,7 @@
+ import { IStorageService } from '../../../../platform/storage/common/storage.js';
+ import { IThemeService } from '../../../../platform/theme/common/themeService.js';
+ 
+-export const MIN_AUXILIARY_BAR_WIDTH = 170;
++export const MIN_AUXILIARY_BAR_WIDTH = 10;
+ 
+ export class AuxiliaryBarPart extends CompositePart<ViewPaneContainer> {
+ 	static readonly ID = 'workbench.parts.auxiliarybar';
