@@ -23,7 +23,6 @@ jobs:
     strategy:
       matrix:
         arch:
-          - aarch64
           - arm
     steps:
       - name: Git clone
