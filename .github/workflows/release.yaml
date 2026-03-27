@@ -38,7 +38,7 @@ jobs:
           sudo apt clean
           sudo rm -fr /opt/ghc /opt/hostedtoolcache /usr/lib/node_modules /usr/local /usr/share/dotnet /usr/share/swift /usr/local/lib/android /opt/hostedtoolcache/CodeQL
           sudo docker image prune --all --force
-          sudo docker builder prune -a
+          sudo docker builder prune -a --force
       - name: Add swap for heavy builds
         run: |
           sudo swapoff -a || true

@@ -39,6 +39,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
     jq \
     file
 
+RUN git config --system url."https://github.com/".insteadOf "ssh://git@github.com/" \
+    && git config --system url."https://github.com/".insteadOf "git@github.com:"
+
 # Install NodeJS
 #  from official docs: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 RUN curl -sL https://deb.nodesource.com/setup_22.x | sudo -E bash -
@@ -46,7 +49,7 @@ RUN sudo apt-get install -y nodejs
 
 # Install npm 
 # releases: https://github.com/npm/cli/releases
-RUN npm install -g npm
+RUN npm install -g npm@10.9.2
 
 
 # Install Yarn
