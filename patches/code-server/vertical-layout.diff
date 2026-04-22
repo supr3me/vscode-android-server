@@ -1,0 +1,22 @@
+diff --git a/lib/vscode/src/vs/workbench/browser/layout.ts b/lib/vscode/src/vs/workbench/browser/layout.ts
+--- a/lib/vscode/src/vs/workbench/browser/layout.ts
++++ b/lib/vscode/src/vs/workbench/browser/layout.ts
+@@ -470,6 +470,24 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServic
+ 	private handleContainerDidLayout(container: HTMLElement, dimension: IDimension): void {
+ 		if (container === this.mainContainer) {
+ 			this._onDidLayoutMainContainer.fire(dimension);
++
++			const isVerticalOrientation = dimension.height > dimension.width;
++
++			if (isVerticalOrientation) {
++				if (this.isVisible(Parts.SIDEBAR_PART)) {
++					this.setSideBarHidden(true);
++				}
++
++				if (this.isVisible(Parts.EDITOR_PART)) {
++					this.setEditorHidden(true);
++				}
++			}
+ 		}
+
+ 		if (isActiveDocument(container)) {

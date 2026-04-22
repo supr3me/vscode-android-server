@@ -1,0 +1,11 @@
+diff --git a/lib/vscode/src/vs/workbench/contrib/chat/browser/chat.contribution.ts b/lib/vscode/src/vs/workbench/contrib/chat/browser/chat.contribution.ts
+--- a/lib/vscode/src/vs/workbench/contrib/chat/browser/chat.contribution.ts
++++ b/lib/vscode/src/vs/workbench/contrib/chat/browser/chat.contribution.ts
+@@ -725,7 +725,7 @@ Registry.as<IConfigurationMigrationRegistry>(Extensions.ConfigurationMigration)
+ 		'chat.disableAIFeatures': {
+ 			type: 'boolean',
+ 			description: nls.localize('chat.disableAIFeatures', "Disable and hide built-in AI features provided by GitHub Copilot, including chat and inline suggestions."),
+-			default: false,
++			default: true,
+ 			scope: ConfigurationScope.WINDOW
+ 		},
